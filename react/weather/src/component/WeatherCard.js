@@ -15,18 +15,15 @@ function timeConverter(date) {
         "Cumartesi",
     ];
     var d = new Date(date * 1000);
-    var dayName = days[d.getDay()];
-    return dayName;
+    return days[d.getDay()];
 }
 
 function dateConvertUnixTimeStamp(dt) {
     const date = new Date();
     const unixTimestamp = Math.floor(date.getTime() / 1000);
 
-    if (timeConverter(dt) === timeConverter(unixTimestamp)) {
-        return true;
-    }
-    return false;
+    return timeConverter(dt) === timeConverter(unixTimestamp);
+
 }
 
 function WeatherCard({weather}) {

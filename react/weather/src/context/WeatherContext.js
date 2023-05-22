@@ -1,9 +1,4 @@
-import React, {
-  createContext,
-  useContext,
-  useLayoutEffect,
-  useState,
-} from "react";
+import React, {createContext, useContext, useLayoutEffect, useState,} from "react";
 import getCityList from "../api/getCityList";
 
 const WeatherContext = createContext();
@@ -32,8 +27,7 @@ const WeatherProvider = ({ children }) => {
   const getWeatherDetail = async (lat, lon) => {
     const url = `https://api.openweathermap.org/data/2.5/forecast/daily?lat=${lat}&lon=${lon}&cnt=${api.count}&units=metric&lang=tr&appid=${api.key}`;
     const res = await fetch(url);
-    const data = await res.json();
-    return data;
+    return await res.json();
   };
   useLayoutEffect(() => {
     getCityList()
